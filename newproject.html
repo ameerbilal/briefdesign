@@ -50,7 +50,7 @@
 
  
      <body>
-        
+        <form>
         <header>
         <div style="text-align: left;">
 
@@ -121,13 +121,36 @@
                 background-color: #f9f9f9; outline: none; transition: 0.3s;"
                 onfocus="this.style.bordercolor='#ff9800';"
                 onblur="this.style.bordercolor='#ccc';
-                this.style.backgroundcolor='f9f9f9'">>
+                this.style.backgroundcolor='f9f9f9'"  id="dropdown" onchange="handleCustomOption()">
                 <option value=" " disabled selected>choose...</option>
-                <option value="web">Web Design</option>
-                <option value="Graphic Design">Graphic Design</option>
+                <option value="Logo">Logo</option>
+                <option value="Graphic Design">Social Media Post</option>
+                <option value="custom">Type your own</option>
+                
                 </select>
                 </div>
-    
+                <input 
+                type="text" 
+                id="customInput" 
+                placeholder="Type your option here..." 
+              />
+            
+              <script>
+                function handleCustomOption() {
+                  const dropdown = document.getElementById("dropdown");
+                  const customInput = document.getElementById("customInput");
+            
+                  // إذا تم اختيار "Type your own"، أظهر مربع الإدخال
+                  if (dropdown.value === "custom") {
+                    customInput.style.display = "inline-block";
+                    customInput.focus(); // تركيز على مربع الإدخال
+                  } else {
+                    // أخفِ مربع الإدخال إذا تم اختيار خيار آخر
+                    customInput.style.display = "none";
+                    customInput.value = ""; // أعد تعيين قيمة مربع الإدخال
+                  }
+                }
+              </script>
            
       
             </center>
@@ -196,7 +219,6 @@
         }
     </style>
 </head>
-<body>
 
     <form>
         <header>
@@ -412,6 +434,7 @@
 
 
 <header>
+</form>
     <a href="index.html"><img src="back.png" style="height: 30px; text-align: left;"></a>
     <h1 style="text-align: Right; color: #FF9900;">Back To Home</h1>
          </header>
